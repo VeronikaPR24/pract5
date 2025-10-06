@@ -41,28 +41,38 @@ public:
         }
     }
 
-    void pop_front() {
+        void pop_front() {
         Node* temp = head;
-        head = head->next;
-        if (head) {
-            head->prev = nullptr;
+        if (!head) {
+            std::cout << "Пустой список" << std::endl;
         }
         else {
-            tail = nullptr;
+            head = head->next;
+            if (head) {
+                head->prev = nullptr;
+            }
+            else {
+                tail = nullptr;
+            }
+            delete temp;
         }
-        delete temp;
     }
 
     void pop_back() {
         Node* temp = tail;
-        tail = tail->prev;
-        if (tail) {
-            tail->next = nullptr;
+        if (!tail) {
+            std::cout << "Пустой список" << std::endl;
         }
         else {
-            head = nullptr;
+            tail = tail->prev;
+            if (tail) {
+                tail->next = nullptr;
+            }
+            else {
+                head = nullptr;
+            }
+            delete temp;
         }
-        delete temp;
     }
 
     void sort() {
