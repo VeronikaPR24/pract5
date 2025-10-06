@@ -66,7 +66,11 @@ public:
     }
 
     void sort() {
-        bool swapped = true;
+    bool swapped = true;
+    if (!head && !tail) {
+        std::cout << "Пустой список" << std::endl;
+    }
+    else {
         while (swapped) {
             swapped = false;
             Node* sort = head;
@@ -81,6 +85,7 @@ public:
             }
         }
     }
+}
 
     void remove_duplicates() {
         Node* current = head;
